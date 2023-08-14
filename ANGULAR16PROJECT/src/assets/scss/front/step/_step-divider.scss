@@ -1,0 +1,21 @@
+/*------------------------------------
+  Step Divider
+------------------------------------*/
+
+@use "sass:math";
+.step-divider {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  height: $step-divider-height;
+  font-size: $step-divider-font-size;
+  font-weight: $step-divider-font-weight;
+  &::after {
+    position: absolute;
+    top: $step-divider-height + math.div($step-padding-x, 2);
+    left: math.div($step-icon-width, 2);
+    height: calc(100% - #{$step-divider-height + math.div($step-padding-x, 2) - $step-padding-x});
+    border-left: $step-border-width solid $step-border-color;
+    content: "";
+  }
+}
